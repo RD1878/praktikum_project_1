@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6, p, blockquote {
+h1, h2, h3, h4, h5, h6, p, blockquote, ul, li {
     margin: 0 0 0 0;
 }
 
@@ -13,12 +13,8 @@ a {
 
 .page {
     min-width: 1100px;
-    /* мы ещё не умеем делать мобильную версию сайта, */
-    /* поэтому выше установлена минимальная ширина страницы */
     max-width: 1600px;
-    /* выше установили ограничение по максимальной ширине */
     margin: 0 auto;
-    /* выше для экранов больше 1600px отцентрировали весь контент */
     font-family: 'Helvetica Neue', Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -33,21 +29,17 @@ a {
     width: 100%;
     position: relative;
     overflow: hidden;
-    
-    /* выше установили ограничения для секции */
+}
+
+.logo {
+    width: 183px;
 }
 
 .logo_place_header {
     height: 32px;
-    width: 183px;
     position: absolute;
     left: 64px;
     top: 30px;
-}
-
-.logo_place_header_image {
-    background-size: cover;
-    background-position: center; 
 }
 
 .header__title {
@@ -70,10 +62,6 @@ a {
     line-height: 25px;
 }
 
-.header__link {
-     
-}
-
 .header__main-illustration {
     height: 608px;
     width: 765px;
@@ -83,12 +71,6 @@ a {
     z-index: 2;
 }
 
-.header__main-illustration_image {
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-}
-/* ниже мы привели пример двух селекторов, чтобы вы вспомнили запись элемента */
 .header__square-pic {
     height: 568px;
     width: 568px;
@@ -171,11 +153,12 @@ a {
     font-weight: bold;
 }
 
-.two-columns__paragraph-2 {
+.two-columns__paragraph:last-of-type {
     height: auto;
     line-height: 34px;
     font-size: 24px;
     font-weight: normal;
+    margin-bottom: 0;
 }
 
 .technics {
@@ -233,6 +216,7 @@ a {
     align-items: center;
     flex-direction: column;
     padding-top: 100px;
+    z-index: 1;
 }
 
 .video__iframes {
@@ -242,6 +226,11 @@ a {
     grid-column-gap: 20px;
 }
 
+.video__iframe {
+    width: 560px;
+    height: 315px;
+}
+
 .oakley {
     display: flex;
     width: 100%;
@@ -249,13 +238,6 @@ a {
     background-color: #F2F2F2;
     padding-top: 160px;
     padding-bottom: 80px;
-}
-
-.two-columns__paragraph_oakley {
-    height: auto;
-    line-height: 34px;
-    font-size: 24px;
-    font-weight: normal;
 }
 
 .digits {
@@ -294,36 +276,40 @@ a {
 }
 
 .table {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-column-gap: normal;
+    grid-row-gap: 60px;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     width: 1100px;
+    padding-top: 60px;
 }
 
 .table_theme_dark {
     z-index: 1;
 }
 
-.table-row-1 {
+.table-row-one {
     display: flex;
     flex-direction: row;
     margin-top: 60px;
     justify-content: space-between;
 }
 
-.table-row-1_theme_dark {
+.table-row-one_theme_dark {
     margin-top: 80px;
 }
 
-.table-row-2 {
+.table-row-two {
     display: flex;
     flex-direction: row;
     margin-top: 60px;
     justify-content: space-between;
 }
 
-.table-row-2_theme_dark {
+.table-row-two_theme_dark {
     margin-top: 80px;
 }
 
@@ -334,7 +320,6 @@ a {
     height: auto;
 }
 
-/* и элемента с модификатором вида ключ-значение */
 .table__cell_theme_dark {
     width: 200px;
     color: white; 
@@ -351,22 +336,19 @@ a {
     line-height: 1.2;
     font-size: 18px;
     font-weight: normal;
+    margin-bottom: 20px;
 }
 
-.table__text-1 {
+.table__text:last-of-type {
     line-height: 1.2;
     font-size: 18px;
     font-weight: normal;
-    margin-top: 20px;
+    margin-bottom: 0;
 }
 
 .feinman {
     height: 790px;
     padding-top: 80px;
-}
-
-.feinman {
-    height: 890px;
     width: 100%;
     position: relative;
     background-color: #F2F2F2;
@@ -412,11 +394,6 @@ a {
     position: absolute;
     left: 0;
     bottom: 0;
-}
-
-.feinman__illustration_image {
-    background-size: cover;
-    background-position: center;
     z-index: 0;
 }
 
@@ -481,10 +458,8 @@ a {
     height: 608px;
     width: 620px;
     margin-right: 20px;
-}
-
-.khan__book-pic_illustration {
-    background-size: contain;
+    object-fit: cover;
+    object-position: left top;
 }
 
 .khan__buy-link {
@@ -492,6 +467,7 @@ a {
     font-size: 30px;
     font-weight: normal;
     text-decoration: none;
+    color: #2F80ED;
 }
 
 .kaufman {
@@ -499,7 +475,7 @@ a {
     width: 100%;
     align-items: center;
     flex-direction: column;
-    background-color: black;
+    background-color: #1F1F1F;
     position: relative;
     overflow: hidden;
     padding-top: 90px;
@@ -512,13 +488,8 @@ a {
     position: absolute;
     right: -210px;
     top: 0;
-}
-
-.kaufman__triangle_image {
     background-size: cover;
     background-position: center;
-    z-index: 0;
-    margin-right: 210px;
     animation: rotate-main-triangle 20s linear infinite;
 }
 
@@ -563,7 +534,7 @@ a {
     min-height: 350px;
     width: 100%;
     align-items: center;
-    background-color: black;
+    background-color: #1F1F1F;
     position: relative;
     color: white;
     display: flex;
@@ -589,16 +560,9 @@ a {
 
 .logo_place_footer {
     height: 35px;
-    width: 183px;
     position: absolute;
     left: 0px;
     top: 0px;
-    background-color: #1F1F1F;
-}
-
-.logo_place_footer_image {
-    background-size: cover;
-    background-position: center;
 }
 
 .footer__author {
@@ -610,7 +574,6 @@ a {
     line-height: 25px;
     font-size: 18px;
     font-weight: normal;
-    background-color: #1F1F1F;
 }
 
 .footer__column_content_info {
